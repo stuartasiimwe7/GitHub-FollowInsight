@@ -1,7 +1,7 @@
 # GitHub FollowInsight
  This is a simple yet powerful Next.js app that helps you track who you follow and who follows you back on GitHub. Just enter a GitHub username, and instantly see!
 ## Overview
-
+![Preview of GitHub FollowInsight](./preview.png)
 This is a web application that allows you to view detailed insights about their GitHub account, such as:
 
 - The list of your followers.
