@@ -51,70 +51,70 @@ export default function Home() {
           placeholder="Enter GitHub username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          className="border p-2 rounded-l"
+          className="border p-2 rounded-l bg-black text-white"
         />
-        <button onClick={fetchGitHubData} className="bg-blue-500 text-white px-4 py-2 rounded-r">
+        <button onClick={fetchGitHubData} className="bg-blue-500 text-white px-4 py-2 rounded-r border border-blue-500">
           Check
         </button>
       </div>
 
       {error && <p className="text-red-500 mb-4">{error}</p>}
 
-      <table className="table-auto w-full border-collapse text-center">
+      <table className="table-auto w-full border-collapse text-center border border-blue-500">
         <thead>
           <tr>
-            <th className="p-4 text-white bg-gray-700">Your Followers</th>
-            <th className="p-4 text-white bg-green-500">People You Follow</th>
-            <th className="p-4 text-white bg-blue-500">Not Following Back</th>
-            <th className="p-4 text-white bg-red-500">Not Followed Back</th>
+        <th className="p-4 text-white bg-blue-500 border border-blue-500">Your Followers</th>
+        <th className="p-4 text-white bg-blue-500 border border-blue-500">People You Follow</th>
+        <th className="p-4 text-white bg-blue-500 border border-blue-500">Not Following Back</th>
+        <th className="p-4 text-white bg-blue-500 border border-blue-500">Not Followed Back</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td className="border p-2 bg-white">
-              {followers.length > 0 ? (
-                <ul className="list-none">
-                  {followers.map((user) => (
-                    <li key={user}>{user}</li>
-                  ))}
-                </ul>
-              ) : (
-                <span>No followers found</span>
-              )}
-            </td>
-            <td className="border p-2 bg-green-100">
-              {following.length > 0 ? (
-                <ul className="list-none">
-                  {following.map((user) => (
-                    <li key={user}>{user}</li>
-                  ))}
-                </ul>
-              ) : (
-                <span>Not following anyone</span>
-              )}
-            </td>
-            <td className="border p-2 bg-blue-100">
-              {notFollowingBack.length > 0 ? (
-                <ul className="list-none">
-                  {notFollowingBack.map((user) => (
-                    <li key={user}>{user}</li>
-                  ))}
-                </ul>
-              ) : (
-                <span>Everyone is following you back</span>
-              )}
-            </td>
-            <td className="border p-2 bg-red-100">
-              {notFollowedBack.length > 0 ? (
-                <ul className="list-none">
-                  {notFollowedBack.map((user) => (
-                    <li key={user}>{user}</li>
-                  ))}
-                </ul>
-              ) : (
-                <span>You are following everyone back</span>
-              )}
-            </td>
+        <td className="border p-2 bg-white border-blue-500">
+          {followers.length > 0 ? (
+            <ul className="list-none">
+          {followers.map((user) => (
+            <li key={user}>{user}</li>
+          ))}
+            </ul>
+          ) : (
+            <span>No followers found</span>
+          )}
+        </td>
+        <td className="border p-2 bg-green-100 border-blue-500">
+          {following.length > 0 ? (
+            <ul className="list-none">
+          {following.map((user) => (
+            <li key={user}>{user}</li>
+          ))}
+            </ul>
+          ) : (
+            <span>Not following anyone</span>
+          )}
+        </td>
+        <td className="border p-2 bg-blue-100 border-blue-500">
+          {notFollowingBack.length > 0 ? (
+            <ul className="list-none">
+          {notFollowingBack.map((user) => (
+            <li key={user}>{user}</li>
+          ))}
+            </ul>
+          ) : (
+            <span>Everyone is following you back</span>
+          )}
+        </td>
+        <td className="border p-2 bg-red-100 border-blue-500">
+          {notFollowedBack.length > 0 ? (
+            <ul className="list-none">
+          {notFollowedBack.map((user) => (
+            <li key={user}>{user}</li>
+          ))}
+            </ul>
+          ) : (
+            <span>You are following everyone back</span>
+          )}
+        </td>
           </tr>
         </tbody>
       </table>
