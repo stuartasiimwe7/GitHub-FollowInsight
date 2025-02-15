@@ -2,25 +2,24 @@
  This is a simple yet powerful Next.js app that helps you track who you follow and who follows you back on GitHub. Just enter a GitHub username, and instantly see!
 ## Overview
 
-GitHub Follow Insight is a web application that allows users to view detailed insights about their GitHub account, such as:
+This is a web application that allows you to view detailed insights about their GitHub account, such as:
 
-- The list of followers.
+- The list of your followers.
 - The list of people they follow.
 - People who are not following back.
 - People they have not followed back.
 
-This application is built using Next.js (React framework), styled with Tailwind CSS, and integrates with the GitHub API to fetch user data.
+It is built using Next.js, styled with Tailwind CSS, and integrates with the GitHub API to fetch user data.
 
 ## Features
 
 - **Search**: Enter any GitHub username to fetch the follow insights.
-- **Display**: Display lists of followers, following, not following back, and not followed back.
-- **Responsive Design**: Fully responsive with a modern, sleek UI using Tailwind CSS.
-- **Interactive**: Allows users to check their GitHub follow details dynamically.
+- **Display**: Display lists of followers, following, not following back, and not followed back in tabular format.
+- **Responsive & Interactive**: Fully responsive allows you to check your GitHub follow details dynamically.
 
 ## Prerequisites
 
-Before setting up the project, you need the following:
+Before setting up the project, you'll need the following:
 
 - **Node.js**: Install the latest version from [Node.js Official Website](https://nodejs.org/).
 - **npm or yarn**: Package managers to install dependencies.
@@ -33,7 +32,7 @@ Before setting up the project, you need the following:
 Start by cloning the repository to your local machine.
 
 ```bash
-git clone https://github.com/yourusername/GitHub-Follow-Insight.git
+git clone https://github.com/stuartasiimwe7/GitHub-Follow-Insight.git
 cd GitHub-Follow-Insight
 ```
 
