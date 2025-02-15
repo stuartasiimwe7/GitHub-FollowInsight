@@ -1,21 +1,101 @@
+/* Tailwind imports */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
+/* Custom root variables */
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary-color: #00bcd4; /* Aqua Color */
+  --secondary-color: #00796b; /* Green for followers */
+  --warning-color: #f44336; /* Red for not followed back */
+  --info-color: #2196f3; /* Blue for not following back */
 }
 
+/* Dark mode variables */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: green;
-    --foreground: black;
+    --background: #212121;
+    --foreground: white;
+    --primary-color: #00bcd4;
   }
 }
+input {
+  background-color: skyblue !important; /* Override with a specific blue, or use a variable */
+}
 
+
+/* Global styles for body */
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+h1 {
+  color: var(--primary-color);
+}
+
+button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Table styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+td {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+.follower {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.not-followed-back {
+  background-color: var(--warning-color);
+  color: white;
+}
+
+.not-following-back {
+  background-color: var(--info-color);
+  color: white;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

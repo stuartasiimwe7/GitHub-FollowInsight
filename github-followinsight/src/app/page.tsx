@@ -1,5 +1,7 @@
 "use client";
 
+import '../app/globals.css';  // Ensure this path is correct
+
 import { useState } from "react";
 
 interface GitHubUser {
@@ -42,31 +44,38 @@ export default function Home() {
   const notFollowedBack = following.filter((followed) => !followers.includes(followed));
 
   return (
-    <div className="min-h-screen p-6 bg-aqua flex flex-col items-center justify-center">
-      <h1 className="text-2xl font-bold mb-4">GitHub Follow Insight</h1>
-      
-      <div className="flex mb-6">
-        <input
-          type="text"
-          placeholder="Enter GitHub username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          className="border p-2 rounded-l bg-black text-white"
-        />
-        <button onClick={fetchGitHubData} className="bg-blue-500 text-white px-4 py-2 rounded-r border border-blue-500">
-          Check
-        </button>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-aqua p-6">
+      <div className="text-center mb-6">
+        <h1>GitHub Follow Insight</h1>
       </div>
 
-      {error && <p className="text-red-500 mb-4">{error}</p>}
+      <div className="flex flex-col items-center mb-6 w-full max-w-md">
+        <div className="text-center mb-6 bg-green-100 p-4 rounded">
+          <input
+            type="text"
+            placeholder="Enter GitHub username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <button
+            onClick={fetchGitHubData}
+            className="bg-blue-500 text-white px-4 py-2 rounded-r border border-blue-500"
+          >
+            Check
+          </button>
+        </div>
+      </div>
 
-      <table className="table-auto w-full border-collapse text-center">
+
+      {error && <p className="text-red-500 mb-4 text-center">{error}</p>}
+
+      <table className="table-auto w-full border-collapse text-center mt-6">
         <thead>
           <tr>
-            <th className="p-4 text-white bg-gray-700">Your Followers</th>
-            <th className="p-4 text-white bg-green-500">People You Follow</th>
-            <th className="p-4 text-white bg-blue-500">Not Following Back</th>
-            <th className="p-4 text-white bg-red-500">Not Followed Back</th>
+            <th className="py-3 px-4 bg-blue-500 text-white">Your Followers</th>
+            <th className="py-3 px-4 bg-green-500 text-white">People You Follow</th>
+            <th className="py-3 px-4 bg-blue-500 text-white">Not Following Back</th>
+            <th className="py-3 px-4 bg-red-500 text-white">Not Followed Back</th>
           </tr>
         </thead>
         <tbody>
