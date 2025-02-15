@@ -51,7 +51,7 @@ export default function Home() {
           placeholder="Enter GitHub username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          className="border p-2 rounded-l"
+          className="border p-2 rounded-l bg-black text-white"
         />
         <button onClick={fetchGitHubData} className="bg-blue-500 text-white px-4 py-2 rounded-r border border-blue-500">
           Check
