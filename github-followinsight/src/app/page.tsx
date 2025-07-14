@@ -14,12 +14,22 @@ export default function Home() {
   const [following, setFollowing] = useState<string[]>([]);
   const [error, setError] = useState<string>("");
 
+  const GITHUB_TOKEN = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
+
   const fetchAllPages = async (url: string) => {
     let results: GitHubUser[] = [];
     let page = 1;
     let per_page = 100; // GitHub API max per_page is 100
     while (true) {
-      const res = await fetch(`${url}?per_page=${per_page}&page=${page}`);
+      const headers: Record<string, string> = {};
+      if (GITHUB_TOKEN) {
+        headers["Authorization"] = `Bearer ${GITHUB_TOKEN}`;
+      } else {
+        if (page === 1) {
+          console.warn("GitHub token not set. You may hit rate limits or get incomplete results.");
+        }
+      }
+      const res = await fetch(`${url}?per_page=${per_page}&page=${page}`, { headers });
       if (!res.ok) break;
       const data: GitHubUser[] = await res.json();
       results = results.concat(data);
