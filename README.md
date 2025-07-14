@@ -32,7 +32,7 @@ Before setting up the project, you'll need the following:
 Start by cloning the repository to your local machine.
 
 ```bash
-git clone https://github.com/stuartasiimwe7/GitHub-Follow-Insight.git
+git clone https://github.com/stuartasiimwe7/GitHub-FollowInsight.git
 cd GitHub-Follow-Insight
 ```
 
