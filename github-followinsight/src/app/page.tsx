@@ -14,23 +14,30 @@ export default function Home() {
   const [following, setFollowing] = useState<string[]>([]);
   const [error, setError] = useState<string>("");
 
+  const fetchAllPages = async (url: string) => {
+    let results: GitHubUser[] = [];
+    let page = 1;
+    let per_page = 100; // GitHub API max per_page is 100
+    while (true) {
+      const res = await fetch(`${url}?per_page=${per_page}&page=${page}`);
+      if (!res.ok) break;
+      const data: GitHubUser[] = await res.json();
+      results = results.concat(data);
+      if (data.length < per_page) break; // No more pages
+      page++;
+    }
+    return results;
+  };
+
   const fetchGitHubData = async () => {
     if (!username) return;
 
     try {
       setError("");
-      const [followersRes, followingRes] = await Promise.all([
-        fetch(`https://api.github.com/users/${username}/followers`),
-        fetch(`https://api.github.com/users/${username}/following`),
+      const [followersData, followingData] = await Promise.all([
+        fetchAllPages(`https://api.github.com/users/${username}/followers`),
+        fetchAllPages(`https://api.github.com/users/${username}/following`),
       ]);
-
-      if (!followersRes.ok || !followingRes.ok) {
-        setError("User not found or API limit exceeded");
-        return;
-      }
-
-      const followersData: GitHubUser[] = await followersRes.json();
-      const followingData: GitHubUser[] = await followingRes.json();
 
       setFollowers(followersData.map((user: GitHubUser) => user.login));
       setFollowing(followingData.map((user: GitHubUser) => user.login));
